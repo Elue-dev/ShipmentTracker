@@ -1,6 +1,7 @@
 import Button from "@/components/ui/button";
 import AppText from "@/components/ui/text";
 import { COLORS } from "@/constants/colors";
+import { isEmail } from "@/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -19,7 +20,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { z } from "zod";
 
 const loginFormSchema = z.object({
-  email: z.string().email("Please enter a valid email address"),
+  identifier: z
+    .string()
+    .min(3, "Enter at least 3 characters")
+    .refine((val) => isEmail(val) || /^[a-zA-Z0-9_]+$/.test(val), {
+      message: "Enter a valid email or username",
+    }),
   password: z.string().min(10, "Password must be at least 10 characters"),
 });
 
@@ -33,7 +39,7 @@ export default function Login() {
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
-      email: "",
+      identifier: "",
       password: "",
     },
     mode: "onChange",
@@ -66,10 +72,9 @@ export default function Login() {
               </AppText>
 
               <View className="mt-10 gap-6">
-                {/* Email */}
                 <Controller
                   control={control}
-                  name="email"
+                  name="identifier"
                   render={({ field: { onChange, onBlur, value } }) => (
                     <>
                       <FloatingLabelInput
@@ -83,10 +88,10 @@ export default function Login() {
                         inputStyles={styles.inputStyle}
                       />
 
-                      {errors.email && (
-                        <Text className="text-base text-red-500 -mt-4">
-                          {errors.email.message}
-                        </Text>
+                      {errors.identifier && (
+                        <AppText classNames="text-base text-red-500 -mt-4">
+                          {errors.identifier.message}
+                        </AppText>
                       )}
                     </>
                   )}
@@ -111,9 +116,9 @@ export default function Login() {
                       />
 
                       {errors.password && (
-                        <Text className="text-base text-red-500 -mt-4">
+                        <AppText classNames="text-base text-red-500 -mt-4">
                           {errors.password.message}
-                        </Text>
+                        </AppText>
                       )}
                     </>
                   )}
