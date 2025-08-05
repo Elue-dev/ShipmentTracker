@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { ViewStyle } from "react-native";
+import { TextStyle, ViewStyle } from "react-native";
 
 export type ButtonProps = {
   onPress: () => void;
@@ -17,6 +17,15 @@ export type ButtonProps = {
   danger?: boolean;
   uppercased?: boolean;
   softBg?: boolean;
+};
+
+export type TextProps = {
+  label?: string;
+  classNames?: string;
+  asChild?: boolean;
+  styles?: TextStyle;
+  centered?: boolean;
+  children?: ReactNode;
 };
 
 export type TagStatus =
