@@ -48,7 +48,7 @@ export default function SplashScreen() {
     const backgroundColor = interpolateColor(
       backgroundProgress.value,
       [0, 1],
-      ["#FFFFFF", COLORS.primary]
+      ["#FFFFFF", COLORS.primary.DEFAULT]
     );
     return { backgroundColor };
   });
