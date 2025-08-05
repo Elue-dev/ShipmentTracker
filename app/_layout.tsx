@@ -5,6 +5,12 @@ export default function RootLayout() {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="(tabs)" />
+      <Stack.Screen
+        name="auth/login"
+        options={{
+          animation: "fade",
+        }}
+      />
     </Stack>
   );
 }
