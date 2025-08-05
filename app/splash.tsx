@@ -13,7 +13,7 @@ import Animated, {
 
 const { height } = Dimensions.get("window");
 
-export default function SplashScreen() {
+export default function Splash() {
   const router = useRouter();
 
   const scale = useSharedValue(0.5);
@@ -34,7 +34,7 @@ export default function SplashScreen() {
     backgroundProgress.value = withDelay(
       2000,
       withTiming(1, { duration: 900 }, () => {
-        runOnJS(router.replace)("/auth/login");
+        runOnJS(router.replace)("/launch-screen");
       })
     );
   }, []);

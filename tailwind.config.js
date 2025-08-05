@@ -15,6 +15,9 @@ module.exports = {
           200: "#4169E1",
           300: "#D9E6FD",
         },
+        gray: {
+          100: "#757281",
+        },
         danger: {
           bg: "#FEE3D4",
           text: "#D12030",
@@ -34,6 +37,7 @@ module.exports = {
         disabled: {
           bg: "#EAE7F2",
           text: "#A8A2BC",
+          text2: "#A7A3B3",
         },
       },
       fontFamily: {

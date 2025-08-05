@@ -19,6 +19,7 @@ export default function Button({
   danger = false,
   uppercased = false,
   softBg = false,
+  inverted = false,
 }: ButtonProps) {
   return (
     <TouchableOpacity
@@ -26,14 +27,15 @@ export default function Button({
       style={styles}
       className={cn(
         "bg-primary p-5 rounded-md mt-5 font-semibold min-w-[100px]",
-        classNames,
         isLoading ? "opacity-70" : "",
+        inverted ? "bg-white" : "",
         outlined ? "bg-transparent border border-primary" : "",
         softBg ? "bg-primary-300" : "",
-        disabled ? "bg-disabled border-0" : "",
+        disabled ? "bg-disabled-bg border-0" : "",
         centered ? "self-center" : "",
         full ? "w-full" : "",
-        danger ? "bg-[#c81e1e]" : ""
+        danger ? "bg-[#c81e1e]" : "",
+        classNames
       )}
       onPress={disabled ? () => {} : onPress}
       disabled={isLoading}
@@ -47,9 +49,9 @@ export default function Button({
               <ActivityIndicator color="#fff" size="small" />
               <Text
                 className={cn(
-                  "text-white text-[17px] ml-2 font-semibold",
+                  "text-white text-[17px] ml-2 font-Medium",
                   uppercased ? "uppercase" : "",
-                  softBg ? "text-primary" : ""
+                  softBg || inverted ? "text-primary" : ""
                 )}
               >
                 {loadingText ?? "Loading..."}
@@ -58,11 +60,11 @@ export default function Button({
           ) : (
             <Text
               className={cn(
-                "text-white text-[17px] text-center font-semibold",
+                "text-white text-[19px] text-center font-Medium",
                 outlined && "text-primary",
-                disabled && "text-white",
+                disabled && "text-disabled-text2",
                 uppercased ? "uppercase" : "",
-                softBg ? "text-primary" : ""
+                softBg || inverted ? "text-primary" : ""
               )}
             >
               {label}

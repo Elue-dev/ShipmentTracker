@@ -9,9 +9,17 @@ export default function AppText({
   styles,
   asChild = true,
   children,
+  large,
 }: TextProps) {
   return (
-    <Text className={cn("font-Regular", classNames)} style={styles}>
+    <Text
+      className={cn(
+        "font-Regular text-[17px] leading-6",
+        large ? "font-Bold text-[35px]" : "text-gray-100",
+        classNames
+      )}
+      style={styles}
+    >
       {asChild ? children : label}
     </Text>
   );

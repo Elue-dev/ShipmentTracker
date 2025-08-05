@@ -17,12 +17,14 @@ export type ButtonProps = {
   danger?: boolean;
   uppercased?: boolean;
   softBg?: boolean;
+  inverted?: boolean;
 };
 
 export type TextProps = {
   label?: string;
   classNames?: string;
   asChild?: boolean;
+  large?: boolean;
   styles?: TextStyle;
   centered?: boolean;
   children?: ReactNode;

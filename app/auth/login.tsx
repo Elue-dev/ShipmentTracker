@@ -1,14 +1,150 @@
+import Button from "@/components/ui/button";
 import AppText from "@/components/ui/text";
-import { Image } from "expo-image";
-import { View } from "react-native";
+import { COLORS } from "@/constants/colors";
+import { zodResolver } from "@hookform/resolvers/zod";
+import React from "react";
+import { Controller, useForm } from "react-hook-form";
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
+import { FloatingLabelInput } from "react-native-floating-label-input";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { z } from "zod";
+
+const loginFormSchema = z.object({
+  email: z.string().email("Please enter a valid email address"),
+  password: z.string().min(10, "Password must be at least 10 characters"),
+});
+
+type LoginFormData = z.infer<typeof loginFormSchema>;
 
 export default function Login() {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<LoginFormData>({
+    resolver: zodResolver(loginFormSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    mode: "onChange",
+  });
+
+  const onSubmit = (data: LoginFormData) => {
+    console.log("Login data:", data);
+  };
+
   return (
-    <View className="flex-1 bg-primary">
-      <View className="items-center justify-center h-screen">
-        <AppText>Login</AppText>
-        <Image />
-      </View>
-    </View>
+    <SafeAreaView className="flex-1 bg-white" edges={["top", "left", "right"]}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
+        style={{ flex: 1 }}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 20}
+      >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <ScrollView
+            contentContainerStyle={{
+              flexGrow: 1,
+              justifyContent: "space-between",
+            }}
+            keyboardShouldPersistTaps="handled"
+          >
+            <View className="px-5 pt-5">
+              <AppText large>Login</AppText>
+              <AppText classNames="max-w-[95%] mt-2">
+                Please enter your First, Last name and your phone number in
+                order to register
+              </AppText>
+
+              <View className="mt-10 gap-6">
+                {/* Email */}
+                <Controller
+                  control={control}
+                  name="email"
+                  render={({ field: { onChange, onBlur, value } }) => (
+                    <>
+                      <FloatingLabelInput
+                        label="Username / Email"
+                        value={value}
+                        onChangeText={onChange}
+                        onBlur={onBlur}
+                        keyboardType="email-address"
+                        animationDuration={200}
+                        containerStyles={styles.inputContainer}
+                        inputStyles={styles.inputStyle}
+                      />
+
+                      {errors.email && (
+                        <Text className="text-base text-red-500 -mt-4">
+                          {errors.email.message}
+                        </Text>
+                      )}
+                    </>
+                  )}
+                />
+
+                <Controller
+                  control={control}
+                  name="password"
+                  render={({ field: { onChange, onBlur, value } }) => (
+                    <>
+                      <FloatingLabelInput
+                        label="Password"
+                        value={value}
+                        isPassword
+                        onChangeText={onChange}
+                        onBlur={onBlur}
+                        animationDuration={200}
+                        containerStyles={styles.inputContainer}
+                        inputStyles={styles.inputStyle}
+                        customShowPasswordComponent={<Text></Text>}
+                        customHidePasswordComponent={<Text></Text>}
+                      />
+
+                      {errors.password && (
+                        <Text className="text-base text-red-500 -mt-4">
+                          {errors.password.message}
+                        </Text>
+                      )}
+                    </>
+                  )}
+                />
+              </View>
+            </View>
+
+            <View className="px-5 pb-16">
+              <Button
+                label="Login"
+                disabled={!isValid}
+                onPress={handleSubmit(onSubmit)}
+              />
+            </View>
+          </ScrollView>
+        </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  inputContainer: {
+    backgroundColor: COLORS.cancelled.bg,
+    borderWidth: 0,
+    padding: 15,
+    borderRadius: 8,
+  },
+  inputStyle: {
+    color: COLORS.primary.DEFAULT,
+    fontSize: 16,
+    fontFamily: "Regular",
+  },
+});
