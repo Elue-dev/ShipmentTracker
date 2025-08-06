@@ -7,6 +7,7 @@ export default function ScreenWrapper({
   children,
   noMargin,
   containerStyles,
+  classNames,
   disableScroll = false,
   wouldRefresh = false,
   refresh,
@@ -24,6 +25,7 @@ export default function ScreenWrapper({
           marginHorizontal: noMargin ? 0 : 15,
           ...containerStyles,
         }}
+        contentContainerClassName={classNames}
         refreshControl={
           wouldRefresh ? (
             <RefreshControl

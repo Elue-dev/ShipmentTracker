@@ -11,6 +11,7 @@ export const COLORS = {
   },
   success: {
     bg: "#E3FAD6",
+    solid: "#25D366",
     text: "#208D28",
   },
   cancelled: {

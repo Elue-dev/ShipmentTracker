@@ -19,13 +19,16 @@ export type ButtonProps = {
   softBg?: boolean;
   inverted?: boolean;
   clear?: boolean;
+  lightBlue?: boolean;
+  success?: boolean;
+  flexed?: boolean;
 };
 
 export type TextProps = {
   label?: string;
   classNames?: string;
   large?: boolean;
-  size?: "md" | "lg";
+  size?: "md" | "lg" | "xlg";
   styles?: TextStyle;
   centered?: boolean;
   primary?: boolean;
@@ -44,6 +47,7 @@ export type TagStatus =
 export type ScrollViewProps = {
   children: ReactNode;
   noMargin?: boolean;
+  classNames?: string;
   disableScroll?: boolean;
   containerStyles?: ViewStyle;
   wouldRefresh?: boolean;

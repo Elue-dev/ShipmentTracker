@@ -15,9 +15,10 @@ export default function AppText({
     <Text
       className={cn(
         "font-Regular text-[18px] leading-6 text-gray-100",
-        ["md", "lg"].includes(size as string) && "font-Bold text-black",
-        size === "md" && "text-[28px]",
-        size === "lg" && "text-[35px]",
+        ["md", "lg", "xlg"].includes(size as string) && "font-Bold text-black",
+        size === "md" && "text-[22px]",
+        size === "lg" && "text-[26px]",
+        size === "xlg" && "text-[35px]",
         primary && "text-primary",
         classNames
       )}

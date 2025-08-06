@@ -32,7 +32,7 @@ export default function Filters() {
   };
 
   return (
-    <View className="flex-1 bg-white">
+    <View className="flex-1 bg-[#fff]">
       <View className="flex-row items-center justify-between mx-5 mt-5 mb-3">
         <TouchableOpacity onPress={() => router.back()}>
           <AppText primary classNames="font-Medium text-[19px]">

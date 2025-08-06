@@ -24,7 +24,7 @@ export default function HomeHeader() {
 
       <View className="mt-6">
         <AppText label="Hello," classNames="text-[20px]" />
-        <AppText large label={user.name} size="md" />
+        <AppText large label={user.name} size="lg" />
       </View>
     </View>
   );

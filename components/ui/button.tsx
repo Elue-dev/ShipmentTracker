@@ -21,6 +21,9 @@ export default function Button({
   softBg = false,
   inverted = false,
   clear = false,
+  lightBlue = false,
+  success = false,
+  flexed = false,
 }: ButtonProps) {
   return (
     <TouchableOpacity
@@ -34,9 +37,12 @@ export default function Button({
         outlined && "bg-transparent border border-primary",
         softBg && "bg-primary-300",
         disabled && "bg-disabled-bg border-0",
+        lightBlue && "bg-primary-400",
+        success && "bg-success-solid",
+        danger && "bg-[#c81e1e]",
         centered && "self-center",
         full ? "w-full" : "w-[50%]",
-        danger && "bg-[#c81e1e]",
+        flexed && "flex-row items-center justify-center gap-3",
         classNames
       )}
       onPress={disabled ? () => {} : onPress}

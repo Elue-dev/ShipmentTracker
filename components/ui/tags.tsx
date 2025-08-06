@@ -20,15 +20,18 @@ export default function Tag({ status }: { status: TagStatus }) {
     cancelled: COLORS.cancelled.text,
     "on hold": COLORS.warning.text,
     putaway: COLORS.cancelled.text,
-    lost: COLORS.danger.bg,
+    lost: COLORS.danger.text,
   };
 
   return (
     <View
       style={{ backgroundColor: tagBackgroundColor[status] }}
-      className="p-3 rounded-lg"
+      className="p-3 rounded-lg border border-white min-w-[100px]"
     >
-      <Text style={{ color: tagTextColor[status] }} className="uppercase">
+      <Text
+        style={{ color: tagTextColor[status] }}
+        className="uppercase text-center"
+      >
         {status}
       </Text>
     </View>

@@ -1,8 +1,8 @@
 import HomeHeader from "@/components/screen/home-header";
 import SearchAndFilter from "@/components/screen/search-and-filter";
+import Shipments from "@/components/screen/shipments";
 import ScreenWrapper from "@/components/ui/screen-wrapper";
 import { useState } from "react";
-
 import { View } from "react-native";
 
 export default function Home() {
@@ -12,10 +12,13 @@ export default function Home() {
     <ScreenWrapper disableScroll>
       <View>
         <HomeHeader />
+
         <SearchAndFilter
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
         />
+
+        <Shipments />
       </View>
     </ScreenWrapper>
   );

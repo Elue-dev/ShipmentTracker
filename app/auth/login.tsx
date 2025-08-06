@@ -67,7 +67,9 @@ export default function Login() {
             keyboardShouldPersistTaps="handled"
           >
             <View className="px-5 pt-5">
-              <AppText large>Login</AppText>
+              <AppText large size="xlg">
+                Login
+              </AppText>
               <AppText classNames="max-w-[95%] mt-2">
                 Please enter your First, Last name and your phone number in
                 order to register
