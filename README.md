@@ -23,15 +23,18 @@ Watch app demo here: [Demo Video](https://res.cloudinary.com/dwdsjbetu/image/upl
 
 ## 🧱 Folder Structure
 
-├── app/ # Screens/Routes and navigation
-├── assets/ # Images, icons and fonts
-├── components/ # Reusable UI components
-├── constants/ # static variables, colors, etc.
-├── data # Dummy data used in the app (eg Shipments)
-├── store # Store for global state management
-├── types # Typescript Types/Interfaces
-├── utils # reusable values
+```
+.
+├── app/                # Screens/Routes and navigation
+├── assets/             # Images, icons and fonts
+├── components/         # Reusable UI components
+├── constants/          # Static variables, colors, etc.
+├── data/               # Dummy data used in the app (eg Shipments)
+├── store/              # Store for global state management
+├── types/              # Typescript Types/Interfaces
+├── utils/              # Reusable values
 └── README.md
+```
 
 ## 📲 How to run this app
 
