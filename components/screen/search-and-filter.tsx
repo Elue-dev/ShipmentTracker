@@ -1,7 +1,9 @@
 import { COLORS } from "@/constants/colors";
+import { useFilterStore } from "@/store/filter";
 import { SearchAndFilterProps } from "@/types/home/home.types";
 import { Ionicons, Octicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
+import { useRouter } from "expo-router";
 import { TextInput, View } from "react-native";
 import Animated, {
   LinearTransition,
@@ -15,6 +17,9 @@ export default function SearchAndFilter({
   searchQuery,
   setSearchQuery,
 }: SearchAndFilterProps) {
+  const router = useRouter();
+  const { selectedFilters } = useFilterStore();
+
   return (
     <View className="mt-6">
       <View className="bg-cancelled-bg px-2 py-5 rounded-[13px] flex-row items-start justify-center">
@@ -56,15 +61,23 @@ export default function SearchAndFilter({
       <View className="flex-row items-center gap-3">
         <Button
           asChild
-          onPress={() => {}}
+          onPress={() => router.push("/filters")}
           clear
           classNames="flex-row items-center justify-center gap-3 w-[49%]"
         >
-          <Octicons name="filter" size={23} color={COLORS.cancelled.text} />
-          <AppText
-            label="Filters"
-            classNames="text-cancelled-text text-[19px]"
-          />
+          <Animated.View layout={LinearTransition.springify().damping(14)}>
+            <Octicons name="filter" size={23} color={COLORS.cancelled.text} />
+          </Animated.View>
+          <Animated.View layout={LinearTransition.springify().damping(14)}>
+            <AppText
+              label={
+                selectedFilters.length > 0
+                  ? `Filters (${selectedFilters.length})`
+                  : "Filters"
+              }
+              classNames="text-cancelled-text text-[19px]"
+            />
+          </Animated.View>
         </Button>
 
         <Button

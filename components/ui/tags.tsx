@@ -5,18 +5,22 @@ import { Text, View } from "react-native";
 export default function Tag({ status }: { status: TagStatus }) {
   const tagBackgroundColor: Record<TagStatus, string> = {
     received: COLORS.primary["300"],
-    error: COLORS.danger.bg,
+    rejected: COLORS.danger.bg,
     delivered: COLORS.success.bg,
     cancelled: COLORS.cancelled.bg,
     "on hold": COLORS.warning.bg,
+    putaway: COLORS.cancelled.bg,
+    lost: COLORS.danger.bg,
   };
 
   const tagTextColor: Record<TagStatus, string> = {
     received: COLORS.primary.DEFAULT,
-    error: COLORS.danger.text,
+    rejected: COLORS.danger.text,
     delivered: COLORS.success.text,
     cancelled: COLORS.cancelled.text,
     "on hold": COLORS.warning.text,
+    putaway: COLORS.cancelled.text,
+    lost: COLORS.danger.bg,
   };
 
   return (

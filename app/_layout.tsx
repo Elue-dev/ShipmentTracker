@@ -34,7 +34,10 @@ export default function RootLayout() {
   return (
     <SafeAreaProvider>
       <StatusBar style="dark" />
-      <Stack initialRouteName="splash" screenOptions={{ headerShown: false }}>
+      <Stack
+        initialRouteName="splash"
+        screenOptions={{ headerShown: false, animation: "slide_from_left" }}
+      >
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="splash" />
         <Stack.Screen
@@ -74,6 +77,18 @@ export default function RootLayout() {
                 </AppText>
               </Pressable>
             ),
+          }}
+        />
+
+        <Stack.Screen
+          name="filters/index"
+          options={{
+            presentation: "formSheet",
+            sheetGrabberVisible: true,
+            sheetAllowedDetents: "fitToContents",
+            contentStyle: {
+              backgroundColor: "#fff",
+            },
           }}
         />
       </Stack>

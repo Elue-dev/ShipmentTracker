@@ -28,13 +28,16 @@ export type TextProps = {
   size?: "md" | "lg";
   styles?: TextStyle;
   centered?: boolean;
+  primary?: boolean;
   children?: ReactNode;
 };
 
 export type TagStatus =
   | "received"
-  | "error"
   | "delivered"
+  | "putaway"
+  | "rejected"
+  | "lost"
   | "cancelled"
   | "on hold";
 
@@ -46,4 +49,10 @@ export type ScrollViewProps = {
   wouldRefresh?: boolean;
   refresh?: boolean;
   handleRefresh?: VoidFunction;
+};
+
+export type ChipProps = {
+  label: TagStatus;
+  selected: boolean;
+  onToggle: () => void;
 };
