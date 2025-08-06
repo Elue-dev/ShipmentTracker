@@ -20,6 +20,7 @@ export type Shipment = {
 };
 
 export type ShipmentCardProps = {
+  index: number;
   shipment: Shipment;
   checked: boolean;
   onToggleChecked: () => void;

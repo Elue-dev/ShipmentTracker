@@ -62,8 +62,9 @@ export default function Shipments() {
             keyExtractor={(shipments) => shipments.awb}
             showsVerticalScrollIndicator={false}
             scrollEnabled={false}
-            renderItem={({ item }) => (
+            renderItem={({ item, index }) => (
               <ShipmentCard
+                index={index}
                 shipment={item}
                 checked={checkedAWBs.includes(item.awb)}
                 onToggleChecked={() => toggleChecked(item.awb)}

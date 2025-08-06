@@ -6,6 +6,8 @@ import { Image } from "expo-image";
 import React, { useState } from "react";
 import { TouchableOpacity, View } from "react-native";
 import Animated, {
+  FadeInDown,
+  FadeOutDown,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
@@ -16,6 +18,7 @@ import Tag from "../ui/tags";
 import AppText from "../ui/text";
 
 export default function ShipmentCard({
+  index,
   shipment,
   checked,
   onToggleChecked,
@@ -37,7 +40,10 @@ export default function ShipmentCard({
   }));
 
   return (
-    <View
+    <Animated.View
+      entering={FadeInDown.delay(index * 100)}
+      exiting={FadeOutDown.delay(index * 100)}
+      // layout={LinearTransition.damping(10).delay(index * 100)}
       className={cn(
         "rounded-[13px] mb-4 overflow-hidden bg-cancelled-bg",
         checked && "border border-primary"
@@ -156,6 +162,6 @@ export default function ShipmentCard({
           </Button>
         </View>
       </Animated.View>
-    </View>
+    </Animated.View>
   );
 }
