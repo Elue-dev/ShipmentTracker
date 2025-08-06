@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { Platform, Pressable } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
+import { IS_IOS_DEVICE } from "@/constants";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "../global.css";
@@ -69,21 +70,23 @@ export default function RootLayout() {
                   flex: 1,
                   backgroundColor: "#fff",
                 },
-                headerLeft: () => (
-                  <Pressable
-                    onPress={() => router.back()}
-                    className="flex-row items-center"
-                  >
-                    <Ionicons
-                      name="chevron-back"
-                      size={24}
-                      color={COLORS.primary.DEFAULT}
-                    />
-                    <AppText classNames="text-primary text-[18px] mt-[1px]">
-                      Cancel
-                    </AppText>
-                  </Pressable>
-                ),
+                headerLeft: IS_IOS_DEVICE
+                  ? () => (
+                      <Pressable
+                        onPress={() => router.back()}
+                        className="flex-row items-center"
+                      >
+                        <Ionicons
+                          name="chevron-back"
+                          size={24}
+                          color={COLORS.primary.DEFAULT}
+                        />
+                        <AppText classNames="text-primary text-[18px] mt-[1px]">
+                          Cancel
+                        </AppText>
+                      </Pressable>
+                    )
+                  : undefined,
               }}
             />
           </Stack>

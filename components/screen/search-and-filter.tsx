@@ -19,7 +19,7 @@ export default function SearchAndFilter({
   setSearchQuery,
   openFiltersSheet,
 }: SearchAndFilterProps) {
-  const { selectedFilters } = useFilterStore();
+  const { selectedFilters, clearFilters } = useFilterStore();
 
   return (
     <View className="mt-6">
@@ -42,7 +42,10 @@ export default function SearchAndFilter({
 
         <TextInput
           value={searchQuery}
-          onChangeText={setSearchQuery}
+          onChangeText={(text) => {
+            setSearchQuery(text);
+            clearFilters();
+          }}
           className={cn(
             "w-[80%] ml-3  text-primary text-[18.5px] font-Regular",
             IS_IOS_DEVICE ? "mt-[.1px]" : "mt-[-9.9px]"
@@ -70,7 +73,6 @@ export default function SearchAndFilter({
       <View className="flex-row items-center gap-3">
         <Button
           asChild
-          // onPress={() => router.push("/filters")}
           onPress={openFiltersSheet}
           clear
           classNames="flex-row items-center justify-center gap-3 w-[49%] p-4"

@@ -10,7 +10,9 @@ export default function TabLayout() {
         tabBarInactiveTintColor: COLORS.disabled.text2,
         tabBarStyle: {
           backgroundColor: "#fff",
-          borderTopWidth: 0,
+          borderTopWidth: 0.2,
+          minHeight: 70,
+          elevation: 0,
         },
       }}
     >
@@ -29,6 +31,9 @@ export default function TabLayout() {
               style={{ height: 26, width: 25 }}
             />
           ),
+          tabBarLabelStyle: {
+            fontSize: 12,
+          },
         }}
       />
       <Tabs.Screen
@@ -46,6 +51,9 @@ export default function TabLayout() {
               style={{ height: 21, width: 27 }}
             />
           ),
+          tabBarLabelStyle: {
+            fontSize: 12,
+          },
         }}
       />
       <Tabs.Screen
@@ -63,6 +71,9 @@ export default function TabLayout() {
               style={{ height: 20, width: 26 }}
             />
           ),
+          tabBarLabelStyle: {
+            fontSize: 12,
+          },
         }}
       />
       <Tabs.Screen
@@ -80,6 +91,10 @@ export default function TabLayout() {
               style={{ height: 24, width: 25 }}
             />
           ),
+
+          tabBarLabelStyle: {
+            fontSize: 12,
+          },
         }}
       />
     </Tabs>

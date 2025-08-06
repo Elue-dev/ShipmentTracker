@@ -1,14 +1,13 @@
 import { ButtonProps } from "@/types/ui/ui.types";
 import { cn } from "@/utils";
 import { Fragment } from "react";
-import { ActivityIndicator, Text, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, Text, TouchableOpacity } from "react-native";
 
 export default function Button({
   onPress,
   isLoading,
   label,
   full = true,
-  loadingText,
   classNames,
   disabled,
   outlined,
@@ -53,18 +52,7 @@ export default function Button({
       ) : (
         <Fragment>
           {isLoading ? (
-            <View className="flex-row justify-center items-center">
-              <ActivityIndicator color="#fff" size="small" />
-              <Text
-                className={cn(
-                  "text-white text-[17px] ml-2 font-Medium",
-                  uppercased && "uppercase",
-                  (softBg || inverted) && "text-primary"
-                )}
-              >
-                {loadingText ?? "Loading..."}
-              </Text>
-            </View>
+            <ActivityIndicator color="#fff" size="small" />
           ) : (
             <Text
               className={cn(

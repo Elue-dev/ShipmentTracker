@@ -1,50 +1,67 @@
-# Welcome to your Expo app 👋
+# 📦 Shipment Tracker App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Shipment Tracker is a mobile application built using **React Native (Expo)** that allows users to track shipments with detailed origin and destination info, status updates, and a clean UI for logistics monitoring.
 
-## Get started
+Watch app demo here: [Demo Video](https://res.cloudinary.com/dwdsjbetu/image/upload/v1754522730/ScreenRecording2025-08-06at23.49.52-ezgif.com-video-to-gif-converter_v0mskj.gif)
 
-1. Install dependencies
+<img src="https://res.cloudinary.com/dwdsjbetu/image/upload/v1754521273/Screenshot_2025-08-07_at_00.00.17_oq0qtj.png" alt="demo image" width="300" />
+<img src="https://res.cloudinary.com/dwdsjbetu/image/upload/v1754521275/Screenshot_2025-08-07_at_00.00.47_wklheb.png" alt="demo image" width="300" />
+<img src="https://res.cloudinary.com/dwdsjbetu/image/upload/v1754520960/Screenshot_2025-08-06_at_23.53.07_banh6n.png" alt="demo image" width="300" />
+<img src="https://res.cloudinary.com/dwdsjbetu/image/upload/v1754521940/Screenshot_2025-08-07_at_00.11.50_ne7ok2.png" alt="demo image" width="300" />
+<img src="https://res.cloudinary.com/dwdsjbetu/image/upload/v1754520960/Screenshot_2025-08-06_at_23.53.07_banh6n.png" alt="demo image" width="300" />
+<img src="https://res.cloudinary.com/dwdsjbetu/image/upload/v1754520945/Screenshot_2025-08-06_at_23.54.29_smpjea.png" alt="demo image" width="300" />
+<img src="https://res.cloudinary.com/dwdsjbetu/image/upload/v1754520942/Screenshot_2025-08-06_at_23.53.56_tkw6gd.png" alt="demo image" width="300" />
 
-   ```bash
-   npm install
-   ```
+## ✨ Features
 
-2. Start the app
+- View shipment details including AWB number, origin & destination cities, and addresses.
+- Track shipment status in real-time (e.g., on hold, in transit, delivered).
+- Smooth UI/UX with responsive layout and clean design.
+- Built with performance and clarity in mind using Expo.
 
-   ```bash
-   npx expo start
-   ```
+---
 
-In the output, you'll find options to open the app in a
+## 📲 How to run this app
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Prerequisites
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Make sure you have the following installed:
 
-## Get a fresh project
-
-When you're ready, run:
+- [Node.js](https://nodejs.org/en/)
+- [Bun](https://bun.com/docs/installation) or `yarn` or `npm`
+- [Expo CLI](https://docs.expo.dev/get-started/installation/)
 
 ```bash
-npm run reset-project
+npm install -g expo-cli
+# or
+yarn global add expo-cli
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+### 1. Clone the repo:
 
-## Learn more
+```bash
+git clone https://github.com/Elue-dev/ShipmentTracker
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+### 2. Install dependencies:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+bun install
+# or
+npm install
+# or
+yarn install
+```
 
-## Join the community
+## 📱 Run the app
 
-Join our community of developers creating universal apps.
+Start the Expo development server:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+npx expo start
+```
+
+Then scan the QR code using the Expo Go app on your mobile device or run on an emulator:
+
+- **Android**: press `a`
+- **iOS**: press `i`

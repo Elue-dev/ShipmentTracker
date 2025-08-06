@@ -4,6 +4,7 @@ import { create } from "zustand";
 type DefaultState = {
   selectedFilters: TagStatus[];
   toggleFilter: (tag: TagStatus) => void;
+  clearFilters: () => void;
   filtersUpdated: boolean;
   setFiltersUpdated: (value: boolean) => void;
 };
@@ -19,6 +20,7 @@ export const useFilterStore = create<DefaultState>((set) => ({
           : [...state.selectedFilters, tag],
       };
     }),
+  clearFilters: () => set({ selectedFilters: [] }),
   filtersUpdated: false,
   setFiltersUpdated: (value) => set({ filtersUpdated: value }),
 }));

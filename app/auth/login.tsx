@@ -1,11 +1,12 @@
 import Button from "@/components/ui/button";
 import AppText from "@/components/ui/text";
-import { IS_IOS_DEVICE } from "@/constants";
+import { IS_ANDROID_DEVICE, IS_IOS_DEVICE } from "@/constants";
 import { COLORS } from "@/constants/colors";
 import { isEmail, navigationWithReset } from "@/utils";
+import { Ionicons } from "@expo/vector-icons";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { router, useNavigation } from "expo-router";
-import React from "react";
+import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import {
   Keyboard,
@@ -14,6 +15,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
@@ -34,6 +36,10 @@ const loginFormSchema = z.object({
 type LoginFormData = z.infer<typeof loginFormSchema>;
 
 export default function Login() {
+  const [focusedStates, setFocusedStates] = useState({
+    identifier: false,
+    password: false,
+  });
   const navigation = useNavigation();
   const {
     control,
@@ -48,7 +54,7 @@ export default function Login() {
     mode: "onChange",
   });
 
-  const onSubmit = (data: LoginFormData) => {
+  async function onSubmit(data: LoginFormData) {
     if (IS_IOS_DEVICE) {
       router.back();
       setTimeout(() => navigationWithReset(navigation, "(tabs)"), 200);
@@ -56,7 +62,7 @@ export default function Login() {
     }
 
     navigationWithReset(navigation, "(tabs)");
-  };
+  }
 
   return (
     <SafeAreaView className="flex-1 bg-white" edges={["top", "left", "right"]}>
@@ -65,6 +71,22 @@ export default function Login() {
         style={{ flex: 1 }}
         keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 20}
       >
+        {IS_ANDROID_DEVICE && (
+          <TouchableOpacity
+            onPress={() => router.back()}
+            className="flex-row items-center mx-3 mt-4"
+          >
+            <Ionicons
+              name="chevron-back"
+              size={24}
+              color={COLORS.primary.DEFAULT}
+            />
+            <AppText classNames="text-primary text-[18px] mt-[1px]">
+              Cancel
+            </AppText>
+          </TouchableOpacity>
+        )}
+
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <ScrollView
             contentContainerStyle={{
@@ -92,11 +114,27 @@ export default function Login() {
                         label="Username / Email"
                         value={value}
                         onChangeText={onChange}
-                        onBlur={onBlur}
                         keyboardType="email-address"
                         animationDuration={200}
-                        containerStyles={styles.inputContainer}
+                        containerStyles={{
+                          ...styles.inputContainer,
+                          borderWidth: focusedStates.identifier ? 1.5 : 0,
+                          borderColor: COLORS.primary["400"],
+                        }}
                         inputStyles={styles.inputStyle}
+                        onFocus={() =>
+                          setFocusedStates((prev) => ({
+                            ...prev,
+                            identifier: true,
+                          }))
+                        }
+                        onBlur={() => {
+                          onBlur;
+                          setFocusedStates((prev) => ({
+                            ...prev,
+                            identifier: false,
+                          }));
+                        }}
                       />
 
                       {errors.identifier && (
@@ -118,9 +156,25 @@ export default function Login() {
                         value={value}
                         isPassword
                         onChangeText={onChange}
-                        onBlur={onBlur}
                         animationDuration={200}
-                        containerStyles={styles.inputContainer}
+                        onFocus={() =>
+                          setFocusedStates((prev) => ({
+                            ...prev,
+                            password: true,
+                          }))
+                        }
+                        onBlur={() => {
+                          onBlur;
+                          setFocusedStates((prev) => ({
+                            ...prev,
+                            password: false,
+                          }));
+                        }}
+                        containerStyles={{
+                          ...styles.inputContainer,
+                          borderWidth: focusedStates.password ? 1.5 : 0,
+                          borderColor: COLORS.primary["400"],
+                        }}
                         inputStyles={styles.inputStyle}
                         customShowPasswordComponent={<Text></Text>}
                         customHidePasswordComponent={<Text></Text>}
