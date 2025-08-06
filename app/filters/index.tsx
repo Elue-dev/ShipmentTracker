@@ -10,7 +10,7 @@ import { TouchableOpacity, View } from "react-native";
 
 export default function Filters() {
   const router = useRouter();
-  const { selectedFilters, toggleFilter } = useFilterStore();
+  const { selectedFilters, toggleFilter, setFiltersUpdated } = useFilterStore();
   const [localSelected, setLocalSelected] = useState([...selectedFilters]);
 
   const toggleLocal = (tag: TagStatus) => {
@@ -27,6 +27,8 @@ export default function Filters() {
     selectedFilters.forEach((tag) => {
       if (!localSelected.includes(tag)) toggleFilter(tag);
     });
+
+    setFiltersUpdated(true);
 
     router.back();
   };

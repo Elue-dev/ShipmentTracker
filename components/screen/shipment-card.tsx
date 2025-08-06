@@ -43,10 +43,9 @@ export default function ShipmentCard({
     <Animated.View
       entering={FadeInDown.delay(index * 100)}
       exiting={FadeOutDown.delay(index * 100)}
-      // layout={LinearTransition.damping(10).delay(index * 100)}
       className={cn(
         "rounded-[13px] mb-4 overflow-hidden bg-cancelled-bg",
-        checked && "border border-primary"
+        checked && "border-[1.5px] border-primary-400"
       )}
     >
       <View className="px-3 py-4">
@@ -58,26 +57,26 @@ export default function ShipmentCard({
                   ? require("@/assets/icons/checkbox-active.svg")
                   : require("@/assets/icons/checkbox.svg")
               }
-              style={{ width: 20, height: 20 }}
+              style={{ width: 18, height: 18 }}
             />
           </TouchableOpacity>
 
           <Image
             source={require("@/assets/icons/shipment-box.png")}
-            style={{ width: 40, height: 40 }}
+            style={{ width: 30, height: 30 }}
           />
 
           <View className="flex-1">
-            <AppText label="AWB" classNames="text-[17px] font-SemiBold" />
+            <AppText label="AWB" classNames="text-[15px] font-SemiBold" />
             <AppText
               label={shipment.awb}
-              classNames="text-black text-[18px] font-Bold"
+              classNames="text-black text-[19px] font-Bold"
             />
-            <View className="flex-row items-center gap-1">
+            <View className="flex-row items-center gap-[4px]">
               <AppText label={shipment.origin.city} classNames="text-[16px]" />
               <Octicons
                 name="arrow-right"
-                size={18}
+                size={14}
                 color={COLORS.primary.DEFAULT}
               />
               <AppText

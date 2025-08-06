@@ -26,11 +26,11 @@ export default function Tag({ status }: { status: TagStatus }) {
   return (
     <View
       style={{ backgroundColor: tagBackgroundColor[status] }}
-      className="p-3 rounded-lg border border-white min-w-[100px]"
+      className="py-3 px-2 rounded-lg border border-white min-w-[80px]"
     >
       <Text
         style={{ color: tagTextColor[status] }}
-        className="uppercase text-center"
+        className="uppercase text-center font-Medium"
       >
         {status}
       </Text>

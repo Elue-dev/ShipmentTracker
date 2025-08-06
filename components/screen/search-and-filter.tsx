@@ -1,6 +1,7 @@
 import { COLORS } from "@/constants/colors";
 import { useFilterStore } from "@/store/filter";
 import { SearchAndFilterProps } from "@/types/home/home.types";
+import { cn } from "@/utils";
 import { Ionicons, Octicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
@@ -22,7 +23,12 @@ export default function SearchAndFilter({
 
   return (
     <View className="mt-6">
-      <View className="bg-cancelled-bg px-2 py-5 rounded-[13px] flex-row items-start justify-center">
+      <View
+        className={cn(
+          "bg-cancelled-bg px-2 py-4 rounded-[13px] flex-row items-start justify-center",
+          searchQuery && "border-[1.5px] border-primary-400"
+        )}
+      >
         <Animated.View layout={LinearTransition.springify().damping(14)}>
           <Image
             source={
@@ -63,7 +69,7 @@ export default function SearchAndFilter({
           asChild
           onPress={() => router.push("/filters")}
           clear
-          classNames="flex-row items-center justify-center gap-3 w-[49%]"
+          classNames="flex-row items-center justify-center gap-3 w-[49%] p-4"
         >
           <Animated.View layout={LinearTransition.springify().damping(14)}>
             <Octicons name="filter" size={23} color={COLORS.cancelled.text} />
@@ -83,7 +89,7 @@ export default function SearchAndFilter({
         <Button
           asChild
           onPress={() => {}}
-          classNames="flex-row items-center justify-center gap-3 w-[49%]"
+          classNames="flex-row items-center justify-center gap-3 w-[49%] p-4"
         >
           <Image
             source={require("@/assets/icons/scan-alt.svg")}

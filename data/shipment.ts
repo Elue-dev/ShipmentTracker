@@ -19,56 +19,56 @@ export const SHIPMENTS: Shipment[] = [
       address: "Dokki, 22 Nile St.",
     },
     destination: {
-      city: "Alexandria",
-      address: "Smoha, 22 max St.",
+      city: "Tanta",
+      address: "El Geish St., near City Center",
     },
     status: "received",
   },
   {
     awb: "41785691424",
     origin: {
-      city: "Cairo",
-      address: "Nasr City, 10 Abbas St.",
-    },
-    destination: {
       city: "Giza",
       address: "Mohandessin, 5 Tahrir St.",
+    },
+    destination: {
+      city: "Ismailia",
+      address: "El Shohada St., Zone 2",
     },
     status: "cancelled",
   },
   {
     awb: "41785691425",
     origin: {
-      city: "Cairo",
-      address: "Heliopolis, 3 Merghany St.",
+      city: "Luxor",
+      address: "Karnak St., behind Luxor Temple",
     },
     destination: {
-      city: "Alexandria",
-      address: "Gleem, 15 Corniche Rd.",
+      city: "Aswan",
+      address: "Corniche El Nil, near Old Cataract Hotel",
     },
     status: "delivered",
   },
   {
     awb: "41785691426",
     origin: {
-      city: "Cairo",
-      address: "Maadi, 8 Road 9",
+      city: "Port Said",
+      address: "Al Gomhoria St., Port Fouad",
     },
     destination: {
-      city: "Alexandria",
-      address: "Stanley, 11 Beach Rd.",
+      city: "Mansoura",
+      address: "El Toriel St., near El Mashaya",
     },
     status: "lost",
   },
   {
     awb: "41785691427",
     origin: {
-      city: "Cairo",
-      address: "New Cairo, 90th St.",
+      city: "Fayoum",
+      address: "El Sawaqi St., Downtown",
     },
     destination: {
-      city: "Alexandria",
-      address: "Miami, 7 Palm St.",
+      city: "Zagazig",
+      address: "El Galaa St., 1st District",
     },
     status: "received",
   },

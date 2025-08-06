@@ -1,9 +1,9 @@
 import Button from "@/components/ui/button";
 import AppText from "@/components/ui/text";
 import { COLORS } from "@/constants/colors";
-import { isEmail } from "@/utils";
+import { isEmail, navigationWithReset } from "@/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { router } from "expo-router";
+import { router, useNavigation } from "expo-router";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import {
@@ -33,6 +33,7 @@ const loginFormSchema = z.object({
 type LoginFormData = z.infer<typeof loginFormSchema>;
 
 export default function Login() {
+  const navigation = useNavigation();
   const {
     control,
     handleSubmit,
@@ -135,7 +136,7 @@ export default function Login() {
                 label="Login"
                 // disabled={!isValid}
                 // onPress={handleSubmit(onSubmit)}
-                onPress={() => router.replace("/(tabs)")}
+                onPress={() => navigationWithReset(navigation, "(tabs)")}
               />
             </View>
           </ScrollView>
