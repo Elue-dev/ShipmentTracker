@@ -44,7 +44,7 @@ export default function Home() {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 300 }}
         >
-          <Shipments />
+          <Shipments searchQuery={searchQuery} />
         </ScrollView>
       </View>
     </SafeAreaView>

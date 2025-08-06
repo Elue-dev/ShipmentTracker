@@ -6,6 +6,8 @@ import { create } from "zustand";
 type DefaultState = {
   shipments: Shipment[];
   filteredShipments: Shipment[];
+  hasFiltered: boolean;
+
   applyFilters: (statuses: TagStatus[]) => void;
   resetFilters: () => void;
   filterShipments: (query: string, statuses: TagStatus[]) => void;
@@ -14,13 +16,14 @@ type DefaultState = {
 export const useShipmentStore = create<DefaultState>((set, get) => ({
   shipments: SHIPMENTS,
   filteredShipments: [],
+  hasFiltered: false,
   applyFilters: (statuses) => {
     const allShipments = get().shipments;
     const filtered = allShipments.filter((s) => statuses.includes(s.status));
-    set({ filteredShipments: filtered });
+    set({ filteredShipments: filtered, hasFiltered: true });
   },
   resetFilters: () => {
-    set({ filteredShipments: get().shipments });
+    set({ filteredShipments: [], hasFiltered: false });
   },
   filterShipments: (query, statuses) => {
     const allShipments = get().shipments;
@@ -39,6 +42,9 @@ export const useShipmentStore = create<DefaultState>((set, get) => ({
       return matchesQuery && matchesStatus;
     });
 
-    set({ filteredShipments: filtered });
+    set({
+      filteredShipments: filtered,
+      hasFiltered: query.length > 0 || statuses.length > 0,
+    });
   },
 }));

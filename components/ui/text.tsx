@@ -10,6 +10,7 @@ export default function AppText({
   children,
   size,
   primary,
+  centered,
 }: TextProps) {
   return (
     <Text
@@ -19,6 +20,7 @@ export default function AppText({
         size === "md" && "text-[22px]",
         size === "lg" && "text-[26px]",
         size === "xlg" && "text-[35px]",
+        centered && "text-center",
         primary && "text-primary",
         classNames
       )}

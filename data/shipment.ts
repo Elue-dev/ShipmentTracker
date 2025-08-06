@@ -72,4 +72,16 @@ export const SHIPMENTS: Shipment[] = [
     },
     status: "received",
   },
+  {
+    awb: "41725691538",
+    origin: {
+      city: "Cairo",
+      address: "15 Tahrir Square, Downtown Cairo",
+    },
+    destination: {
+      city: "Alexandria",
+      address: "22 Corniche Road, El Mansheya",
+    },
+    status: "on hold",
+  },
 ];
