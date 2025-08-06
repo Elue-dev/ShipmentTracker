@@ -58,8 +58,8 @@ export default function Button({
               <Text
                 className={cn(
                   "text-white text-[17px] ml-2 font-Medium",
-                  uppercased ? "uppercase" : "",
-                  softBg || inverted ? "text-primary" : ""
+                  uppercased && "uppercase",
+                  (softBg || inverted) && "text-primary"
                 )}
               >
                 {loadingText ?? "Loading..."}
@@ -71,8 +71,8 @@ export default function Button({
                 "text-white text-[19px] text-center font-Medium",
                 outlined && "text-primary",
                 disabled && "text-disabled-text2",
-                uppercased ? "uppercase" : "",
-                softBg || inverted ? "text-primary" : ""
+                uppercased && "uppercase",
+                (softBg || inverted) && "text-primary"
               )}
             >
               {label}
