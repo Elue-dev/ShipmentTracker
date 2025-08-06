@@ -3,6 +3,7 @@ export const COLORS = {
     DEFAULT: "#2F50C1",
     200: "#4169E1",
     300: "#D9E6FD",
+    400: "#6E91EC",
   },
   danger: {
     bg: "#FEE3D4",

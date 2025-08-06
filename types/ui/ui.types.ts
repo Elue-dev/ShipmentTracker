@@ -18,6 +18,7 @@ export type ButtonProps = {
   uppercased?: boolean;
   softBg?: boolean;
   inverted?: boolean;
+  clear?: boolean;
 };
 
 export type TextProps = {
@@ -40,6 +41,7 @@ export type TagStatus =
 export type ScrollViewProps = {
   children: ReactNode;
   noMargin?: boolean;
+  disableScroll?: boolean;
   containerStyles?: ViewStyle;
   wouldRefresh?: boolean;
   refresh?: boolean;

@@ -20,20 +20,22 @@ export default function Button({
   uppercased = false,
   softBg = false,
   inverted = false,
+  clear = false,
 }: ButtonProps) {
   return (
     <TouchableOpacity
       activeOpacity={disabled ? 1 : 0.7}
       style={styles}
       className={cn(
-        "bg-primary p-5 rounded-md mt-5 font-semibold min-w-[100px]",
+        "bg-primary p-5 rounded-[13px] mt-5 font-semibold min-w-[100px]",
         isLoading && "opacity-70",
         inverted && "bg-white",
+        clear && "bg-cancelled-bg",
         outlined && "bg-transparent border border-primary",
         softBg && "bg-primary-300",
         disabled && "bg-disabled-bg border-0",
         centered && "self-center",
-        full && "w-full",
+        full ? "w-full" : "w-[50%]",
         danger && "bg-[#c81e1e]",
         classNames
       )}

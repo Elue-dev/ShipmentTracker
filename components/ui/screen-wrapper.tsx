@@ -7,6 +7,7 @@ export default function ScreenWrapper({
   children,
   noMargin,
   containerStyles,
+  disableScroll = false,
   wouldRefresh = false,
   refresh,
   handleRefresh,
@@ -14,6 +15,7 @@ export default function ScreenWrapper({
   return (
     <View className="flex-1 bg-white">
       <ScrollView
+        scrollEnabled={!disableScroll}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           flexGrow: 1,
