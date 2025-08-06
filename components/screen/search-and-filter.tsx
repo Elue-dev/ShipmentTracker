@@ -1,10 +1,10 @@
+import { IS_IOS_DEVICE } from "@/constants";
 import { COLORS } from "@/constants/colors";
 import { useFilterStore } from "@/store/filter";
 import { SearchAndFilterProps } from "@/types/home/home.types";
 import { cn } from "@/utils";
 import { Ionicons, Octicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
-import { useRouter } from "expo-router";
 import { TextInput, View } from "react-native";
 import Animated, {
   LinearTransition,
@@ -17,8 +17,8 @@ import AppText from "../ui/text";
 export default function SearchAndFilter({
   searchQuery,
   setSearchQuery,
+  openFiltersSheet,
 }: SearchAndFilterProps) {
-  const router = useRouter();
   const { selectedFilters } = useFilterStore();
 
   return (
@@ -43,7 +43,10 @@ export default function SearchAndFilter({
         <TextInput
           value={searchQuery}
           onChangeText={setSearchQuery}
-          className="w-[80%] ml-3 mt-[1.5px] text-primary text-[18.5px] font-Regular"
+          className={cn(
+            "w-[80%] ml-3  text-primary text-[18.5px] font-Regular",
+            IS_IOS_DEVICE ? "mt-[.1px]" : "mt-[-9.9px]"
+          )}
           placeholder="Search"
           placeholderTextColor={COLORS.disabled.text2}
         />
@@ -67,7 +70,8 @@ export default function SearchAndFilter({
       <View className="flex-row items-center gap-3">
         <Button
           asChild
-          onPress={() => router.push("/filters")}
+          // onPress={() => router.push("/filters")}
+          onPress={openFiltersSheet}
           clear
           classNames="flex-row items-center justify-center gap-3 w-[49%] p-4"
         >

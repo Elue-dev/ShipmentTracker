@@ -4,6 +4,7 @@ import { TagStatus } from "../ui/ui.types";
 export type SearchAndFilterProps = {
   searchQuery: string;
   setSearchQuery: Dispatch<SetStateAction<string>>;
+  openFiltersSheet: () => void;
 };
 
 export type Shipment = {

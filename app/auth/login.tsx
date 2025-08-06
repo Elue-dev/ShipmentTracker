@@ -1,5 +1,6 @@
 import Button from "@/components/ui/button";
 import AppText from "@/components/ui/text";
+import { IS_IOS_DEVICE } from "@/constants";
 import { COLORS } from "@/constants/colors";
 import { isEmail, navigationWithReset } from "@/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -48,8 +49,13 @@ export default function Login() {
   });
 
   const onSubmit = (data: LoginFormData) => {
-    router.back();
-    router.replace("/(tabs)");
+    if (IS_IOS_DEVICE) {
+      router.back();
+      setTimeout(() => navigationWithReset(navigation, "(tabs)"), 200);
+      return;
+    }
+
+    navigationWithReset(navigation, "(tabs)");
   };
 
   return (
@@ -134,9 +140,8 @@ export default function Login() {
             <View className="px-5 pb-16">
               <Button
                 label="Login"
-                // disabled={!isValid}
-                // onPress={handleSubmit(onSubmit)}
-                onPress={() => navigationWithReset(navigation, "(tabs)")}
+                disabled={!isValid}
+                onPress={handleSubmit(onSubmit)}
               />
             </View>
           </ScrollView>

@@ -20,7 +20,7 @@ export const SHIPMENTS: Shipment[] = [
     },
     destination: {
       city: "Tanta",
-      address: "El Geish St., near City Center",
+      address: "El Geish St. City Center",
     },
     status: "received",
   },
@@ -40,11 +40,11 @@ export const SHIPMENTS: Shipment[] = [
     awb: "41785691425",
     origin: {
       city: "Luxor",
-      address: "Karnak St., behind Luxor Temple",
+      address: "Karnak St. Luxor Temple",
     },
     destination: {
       city: "Aswan",
-      address: "Corniche El Nil, near Old Cataract Hotel",
+      address: "Corniche El Nil. Old Cataract",
     },
     status: "delivered",
   },
@@ -52,11 +52,11 @@ export const SHIPMENTS: Shipment[] = [
     awb: "41785691426",
     origin: {
       city: "Port Said",
-      address: "Al Gomhoria St., Port Fouad",
+      address: "Al Gomhoria St. Fouad",
     },
     destination: {
       city: "Mansoura",
-      address: "El Toriel St., near El Mashaya",
+      address: "El Toriel St. Mashaya",
     },
     status: "lost",
   },
@@ -68,7 +68,7 @@ export const SHIPMENTS: Shipment[] = [
     },
     destination: {
       city: "Zagazig",
-      address: "El Galaa St., 1st District",
+      address: "El Galaa St.",
     },
     status: "received",
   },
@@ -76,11 +76,11 @@ export const SHIPMENTS: Shipment[] = [
     awb: "41725691538",
     origin: {
       city: "Cairo",
-      address: "15 Tahrir Square, Downtown Cairo",
+      address: "15 Tahrir Square, Cairo",
     },
     destination: {
       city: "Alexandria",
-      address: "22 Corniche Road, El Mansheya",
+      address: "22 Corniche Road, Mansheya",
     },
     status: "on hold",
   },

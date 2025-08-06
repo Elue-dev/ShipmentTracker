@@ -105,8 +105,8 @@ export default function ShipmentCard({
         <View className="mt-[-10px]">
           <DashedSeperator />
         </View>
-        <View className="flex-row items-center justify-between">
-          <View className="mt-4">
+        <View className="flex-row items-center justify-between mt-4">
+          <View>
             <AppText label="Origin" primary classNames="text-[13px]" />
             <AppText label={shipment.origin.city} classNames="text-black" />
             <AppText label={shipment.origin.address} classNames="text-[15px]" />
