@@ -27,14 +27,14 @@ export default function Button({
       style={styles}
       className={cn(
         "bg-primary p-5 rounded-md mt-5 font-semibold min-w-[100px]",
-        isLoading ? "opacity-70" : "",
-        inverted ? "bg-white" : "",
-        outlined ? "bg-transparent border border-primary" : "",
-        softBg ? "bg-primary-300" : "",
-        disabled ? "bg-disabled-bg border-0" : "",
-        centered ? "self-center" : "",
-        full ? "w-full" : "",
-        danger ? "bg-[#c81e1e]" : "",
+        isLoading && "opacity-70",
+        inverted && "bg-white",
+        outlined && "bg-transparent border border-primary",
+        softBg && "bg-primary-300",
+        disabled && "bg-disabled-bg border-0",
+        centered && "self-center",
+        full && "w-full",
+        danger && "bg-[#c81e1e]",
         classNames
       )}
       onPress={disabled ? () => {} : onPress}

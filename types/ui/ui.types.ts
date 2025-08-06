@@ -23,8 +23,8 @@ export type ButtonProps = {
 export type TextProps = {
   label?: string;
   classNames?: string;
-  asChild?: boolean;
   large?: boolean;
+  size?: "md" | "lg";
   styles?: TextStyle;
   centered?: boolean;
   children?: ReactNode;
@@ -36,3 +36,12 @@ export type TagStatus =
   | "delivered"
   | "cancelled"
   | "on hold";
+
+export type ScrollViewProps = {
+  children: ReactNode;
+  noMargin?: boolean;
+  containerStyles?: ViewStyle;
+  wouldRefresh?: boolean;
+  refresh?: boolean;
+  handleRefresh?: VoidFunction;
+};

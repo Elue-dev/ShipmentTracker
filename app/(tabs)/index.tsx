@@ -1,10 +1,14 @@
-import React from "react";
-import { Text, View } from "react-native";
+import HomeHeader from "@/components/screen/home-header";
+import ScreenWrapper from "@/components/screen/screen-wrapper";
+
+import { View } from "react-native";
 
 export default function Home() {
   return (
-    <View>
-      <Text>Shipments</Text>
-    </View>
+    <ScreenWrapper>
+      <View>
+        <HomeHeader />
+      </View>
+    </ScreenWrapper>
   );
 }

@@ -47,6 +47,7 @@ export default function Login() {
   });
 
   const onSubmit = (data: LoginFormData) => {
+    router.back();
     router.replace("/(tabs)");
   };
 
@@ -130,8 +131,9 @@ export default function Login() {
             <View className="px-5 pb-16">
               <Button
                 label="Login"
-                disabled={!isValid}
-                onPress={handleSubmit(onSubmit)}
+                // disabled={!isValid}
+                // onPress={handleSubmit(onSubmit)}
+                onPress={() => router.replace("/(tabs)")}
               />
             </View>
           </ScrollView>

@@ -7,20 +7,21 @@ export default function AppText({
   label,
   classNames,
   styles,
-  asChild = true,
   children,
-  large,
+  size,
 }: TextProps) {
   return (
     <Text
       className={cn(
-        "font-Regular text-[17px] leading-6",
-        large ? "font-Bold text-[35px]" : "text-gray-100",
+        "font-Regular text-[17px] leading-6 text-gray-100",
+        ["md", "lg"].includes(size as string) && "font-Bold text-black",
+        size === "md" && "text-[28px]",
+        size === "lg" && "text-[35px]",
         classNames
       )}
       style={styles}
     >
-      {asChild ? children : label}
+      {children ?? label}
     </Text>
   );
 }
