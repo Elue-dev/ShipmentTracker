@@ -3,6 +3,7 @@ import AppText from "@/components/ui/text";
 import { COLORS } from "@/constants/colors";
 import { isEmail } from "@/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { router } from "expo-router";
 import React from "react";
 import { Controller, useForm } from "react-hook-form";
 import {
@@ -46,7 +47,7 @@ export default function Login() {
   });
 
   const onSubmit = (data: LoginFormData) => {
-    console.log("Login data:", data);
+    router.replace("/(tabs)");
   };
 
   return (

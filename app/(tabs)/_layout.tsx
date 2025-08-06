@@ -1,12 +1,13 @@
+import { COLORS } from "@/constants/colors";
+import { Image } from "expo-image";
 import { Tabs } from "expo-router";
-import React from "react";
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "blue",
-        tabBarInactiveTintColor: "red",
+        tabBarActiveTintColor: COLORS.primary.DEFAULT,
+        tabBarInactiveTintColor: COLORS.disabled.text2,
         tabBarStyle: {
           backgroundColor: "#fff",
           borderTopWidth: 0,
@@ -18,6 +19,16 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           title: "Shipments",
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={
+                focused
+                  ? require("../../assets/icons/shipments-focused.svg")
+                  : require("../../assets/icons/shipments.svg")
+              }
+              style={{ height: 26, width: 25 }}
+            />
+          ),
         }}
       />
       <Tabs.Screen
@@ -25,6 +36,16 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           title: "Scan",
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={
+                focused
+                  ? require("../../assets/icons/scan-focused.svg")
+                  : require("../../assets/icons/scan.svg")
+              }
+              style={{ height: 21, width: 27 }}
+            />
+          ),
         }}
       />
       <Tabs.Screen
@@ -32,6 +53,16 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           title: "Wallet",
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={
+                focused
+                  ? require("../../assets/icons/wallet-focused.svg")
+                  : require("../../assets/icons/wallet.svg")
+              }
+              style={{ height: 20, width: 26 }}
+            />
+          ),
         }}
       />
       <Tabs.Screen
@@ -39,6 +70,16 @@ export default function TabLayout() {
         options={{
           headerShown: false,
           title: "Profile",
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={
+                focused
+                  ? require("../../assets/icons/profile-focused.svg")
+                  : require("../../assets/icons/profile.svg")
+              }
+              style={{ height: 24, width: 25 }}
+            />
+          ),
         }}
       />
     </Tabs>

@@ -23,5 +23,6 @@ export const COLORS = {
   disabled: {
     bg: "#EAE7F2",
     text: "#A8A2BC",
+    text2: "#A7A3B3",
   },
 };
