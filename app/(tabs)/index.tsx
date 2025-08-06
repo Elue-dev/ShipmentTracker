@@ -1,8 +1,10 @@
 import HomeHeader from "@/components/screen/home-header";
 import SearchAndFilter from "@/components/screen/search-and-filter";
 import Shipments from "@/components/screen/shipments";
+import { IS_ANDROID_DEVICE } from "@/constants";
 import { useFilterStore } from "@/store/filter";
 import { useShipmentStore } from "@/store/shipment";
+import { cn } from "@/utils";
 import { useFocusEffect } from "expo-router";
 import { useCallback, useEffect, useState } from "react";
 import { SafeAreaView, ScrollView, View } from "react-native";
@@ -30,7 +32,7 @@ export default function Home() {
 
   return (
     <SafeAreaView className="flex-1 bg-white">
-      <View className="mx-5 mt-1">
+      <View className={cn("mx-5", IS_ANDROID_DEVICE ? "mt-[60px]" : "mt-1")}>
         <HomeHeader />
 
         <SearchAndFilter
