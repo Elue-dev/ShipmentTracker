@@ -24,6 +24,7 @@ export default function Home() {
   const filtersUpdated = useFilterStore((state) => state.filtersUpdated);
   const setFiltersUpdated = useFilterStore((state) => state.setFiltersUpdated);
   const clearFilters = useFilterStore((state) => state.clearFilters);
+  const [localSelected, setLocalSelected] = useState([...selectedFilters]);
 
   useEffect(() => {
     filterShipments(searchQuery, selectedFilters);
@@ -47,6 +48,7 @@ export default function Home() {
     setRefresh(true);
     clearFilters();
     setSearchQuery("");
+    setLocalSelected([]);
     setTimeout(() => setRefresh(false), 2000);
   }
 
@@ -83,7 +85,11 @@ export default function Home() {
         </ScrollView>
       </Animated.View>
 
-      <FiltersSheet ref={bottomSheetRef} />
+      <FiltersSheet
+        ref={bottomSheetRef}
+        localSelected={localSelected}
+        setLocalSelected={setLocalSelected}
+      />
     </SafeAreaView>
   );
 }

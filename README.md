@@ -1,6 +1,6 @@
-# 📦 Shipment Tracker App
+# 📦 Shippex
 
-Shipment Tracker is a mobile application built using **React Native (Expo)** that allows users to track shipments with detailed origin and destination info, status updates, and a clean UI for logistics monitoring.
+Shippex is a mobile application built using **React Native (Expo)** that allows users to track shipments with detailed origin and destination info, status updates, and a clean UI for logistics monitoring.
 
 Watch app demo here: [Demo Video](https://res.cloudinary.com/dwdsjbetu/image/upload/v1754522730/ScreenRecording2025-08-06at23.49.52-ezgif.com-video-to-gif-converter_v0mskj.gif)
 
@@ -55,7 +55,7 @@ yarn global add expo-cli
 ### 1. Clone the repo:
 
 ```bash
-git clone https://github.com/Elue-dev/ShipmentTracker
+git clone https://github.com/Elue-dev/Shippex
 ```
 
 ### 2. Install dependencies:

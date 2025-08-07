@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 import { TextStyle, ViewStyle } from "react-native";
 
 export type ButtonProps = {
@@ -59,4 +59,9 @@ export type ChipProps = {
   label: TagStatus;
   selected: boolean;
   onToggle: () => void;
+};
+
+export type FiltersSheetProps = {
+  localSelected: TagStatus[];
+  setLocalSelected: Dispatch<SetStateAction<TagStatus[]>>;
 };
