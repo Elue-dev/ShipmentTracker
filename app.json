@@ -38,7 +38,7 @@
         "expo-splash-screen",
         {
           "backgroundColor": "#ffffff",
-          "image": "./assets/splash-icon.png",
+          "image": "./assets/images/splash-icon.png",
           "imageWidth": 200
         }
       ],
@@ -58,19 +58,18 @@
         }
       ]
     ],
-
     "experiments": {
       "typedRoutes": true
     },
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "b26266f2-7457-4b76-80e8-4cac411b6dfa"
+        "projectId": "078d3ca4-da05-4820-a99a-26122db82bdf"
       }
     },
     "runtimeVersion": "1.0.0",
     "updates": {
-      "url": "https://u.expo.dev/b26266f2-7457-4b76-80e8-4cac411b6dfa"
+      "url": "https://u.expo.dev/078d3ca4-da05-4820-a99a-26122db82bdf"
     }
   }
 }

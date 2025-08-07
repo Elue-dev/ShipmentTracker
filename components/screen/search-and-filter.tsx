@@ -1,4 +1,4 @@
-import { IS_IOS_DEVICE } from "@/constants";
+import { IS_ANDROID_DEVICE, IS_IOS_DEVICE } from "@/constants";
 import { COLORS } from "@/constants/colors";
 import { useFilterStore } from "@/store/filter";
 import { SearchAndFilterProps } from "@/types/home/home.types";
@@ -25,8 +25,9 @@ export default function SearchAndFilter({
     <View className="mt-6">
       <View
         className={cn(
-          "bg-cancelled-bg px-2 py-4 rounded-[13px] flex-row items-start justify-center",
-          searchQuery && "border-[1.5px] border-primary-400"
+          "bg-cancelled-bg px-2  rounded-[13px] flex-row items-start justify-center",
+          searchQuery && "border-[1.5px] border-primary-400",
+          IS_ANDROID_DEVICE ? "py-3" : "py-4"
         )}
       >
         <Animated.View layout={LinearTransition.springify().damping(14)}>
