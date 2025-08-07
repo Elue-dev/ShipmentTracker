@@ -2,7 +2,15 @@
 
 Shippex is a mobile application built using **React Native (Expo)** that allows users to track shipments with detailed origin and destination info, status updates, and a clean UI for logistics monitoring.
 
-Watch app demo here: [Demo Video](https://res.cloudinary.com/dwdsjbetu/image/upload/v1754522730/ScreenRecording2025-08-06at23.49.52-ezgif.com-video-to-gif-converter_v0mskj.gif)
+## 📱 Try the App
+
+<a href="https://github.com/Elue-dev/Shippex/releases/download/v1.0.0/shippex.apk">
+<img src="https://img.shields.io/badge/Download-APK-green?style=for-the-badge&logo=android" alt="Download APK">
+</a>
+
+<br>
+
+**🎥 Demo Video**: [Watch Demo](https://res.cloudinary.com/dwdsjbetu/image/upload/v1754522730/ScreenRecording2025-08-06at23.49.52-ezgif.com-video-to-gif-converter_v0mskj.gif)
 
 <img src="https://res.cloudinary.com/dwdsjbetu/image/upload/v1754521273/Screenshot_2025-08-07_at_00.00.17_oq0qtj.png" alt="demo image" width="300" />
 <img src="https://res.cloudinary.com/dwdsjbetu/image/upload/v1754521275/Screenshot_2025-08-07_at_00.00.47_wklheb.png" alt="demo image" width="300" />
@@ -55,7 +63,7 @@ yarn global add expo-cli
 ### 1. Clone the repo:
 
 ```bash
-git clone https://github.com/Elue-dev/Shippex
+git clone https://github.com/Elue-dev/ShipmentTracker
 ```
 
 ### 2. Install dependencies:
