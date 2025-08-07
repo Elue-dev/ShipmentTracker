@@ -26,6 +26,9 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (loaded || error) {
+      SplashScreen.setOptions({
+        fade: true,
+      });
       SplashScreen.hideAsync();
     }
   }, [loaded, error]);

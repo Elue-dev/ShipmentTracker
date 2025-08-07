@@ -1,28 +1,28 @@
 {
   "expo": {
-    "name": "Shipment Tracker",
-    "slug": "ShipmentTracker",
+    "name": "Shippex",
+    "slug": "shippex",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "shipmenttracker",
+    "scheme": "shippex",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
       "image": "./assets/images/splash.png",
-      "resizeMode": "cover",
+      "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.divic.shipmentTracker"
+      "bundleIdentifier": "com.divic.shippex"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.divic.shipmentTracker",
+      "package": "com.divic.shippex",
       "edgeToEdgeEnabled": true
     },
     "web": {
@@ -30,7 +30,35 @@
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-    "plugins": ["expo-router", "expo-font"],
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      "expo-build-properties",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#ffffff",
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": false,
+            "allowBackup": false,
+            "useLegacyPackaging": true,
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 34,
+            "minSdkVersion": 29,
+            "buildToolsVersion": "34.0.0",
+            "kotlinVersion": "1.9.25"
+          }
+        }
+      ]
+    ],
+
     "experiments": {
       "typedRoutes": true
     },

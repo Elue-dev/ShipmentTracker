@@ -27,6 +27,7 @@ const FiltersSheet = forwardRef<BottomSheetModal>((_, ref) => {
   }
 
   function applyFilters() {
+    (ref as any)?.current?.close();
     localSelected.forEach((tag) => {
       if (!selectedFilters.includes(tag)) toggleFilter(tag);
     });
@@ -36,7 +37,6 @@ const FiltersSheet = forwardRef<BottomSheetModal>((_, ref) => {
     });
 
     setFiltersUpdated(true);
-    (ref as any)?.current?.close();
   }
 
   return (

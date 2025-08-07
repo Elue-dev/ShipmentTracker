@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     backgroundColor: COLORS.cancelled.bg,
     borderWidth: 0,
-    padding: IS_IOS_DEVICE ? 15 : 10,
+    padding: IS_IOS_DEVICE ? 19 : 10,
     borderRadius: 8,
   },
   inputStyle: {

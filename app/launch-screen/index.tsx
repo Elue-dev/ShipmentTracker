@@ -15,7 +15,7 @@ export default function LaunchScreen() {
       <View className="flex-1 justify-between">
         <View className="flex-1 items-center justify-center">
           <Image
-            source={require("@/assets/images/logo.svg")}
+            source={require("@/assets/images/logo-alt.png")}
             style={{ height: 40, width: "70%" }}
           />
         </View>

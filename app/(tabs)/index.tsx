@@ -3,23 +3,27 @@ import HomeHeader from "@/components/screen/home-header";
 import SearchAndFilter from "@/components/screen/search-and-filter";
 import Shipments from "@/components/screen/shipments";
 import { IS_ANDROID_DEVICE } from "@/constants";
+import { COLORS } from "@/constants/colors";
 import { useFilterStore } from "@/store/filter";
 import { useShipmentStore } from "@/store/shipment";
 import { cn } from "@/utils";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
+import * as Haptics from "expo-haptics";
 import { useFocusEffect } from "expo-router";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { SafeAreaView, ScrollView, View } from "react-native";
+import { RefreshControl, SafeAreaView, ScrollView, View } from "react-native";
 import Animated, { FadeIn } from "react-native-reanimated";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [refresh, setRefresh] = useState(false);
   const bottomSheetRef = useRef<BottomSheetModal>(null);
 
   const selectedFilters = useFilterStore((state) => state.selectedFilters);
   const filterShipments = useShipmentStore((state) => state.filterShipments);
   const filtersUpdated = useFilterStore((state) => state.filtersUpdated);
   const setFiltersUpdated = useFilterStore((state) => state.setFiltersUpdated);
+  const clearFilters = useFilterStore((state) => state.clearFilters);
 
   useEffect(() => {
     filterShipments(searchQuery, selectedFilters);
@@ -36,6 +40,14 @@ export default function Home() {
 
   function openFiltersSheet() {
     bottomSheetRef.current?.present();
+  }
+
+  function handleRefresh() {
+    Haptics.selectionAsync();
+    setRefresh(true);
+    clearFilters();
+    setSearchQuery("");
+    setTimeout(() => setRefresh(false), 2000);
   }
 
   return (
@@ -57,6 +69,15 @@ export default function Home() {
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingBottom: 300 }}
+          refreshControl={
+            <RefreshControl
+              refreshing={refresh}
+              onRefresh={handleRefresh}
+              progressBackgroundColor={COLORS.primary.DEFAULT}
+              tintColor={COLORS.primary.DEFAULT}
+              colors={["#fff"]}
+            />
+          }
         >
           <Shipments searchQuery={searchQuery} />
         </ScrollView>

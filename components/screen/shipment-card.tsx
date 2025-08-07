@@ -78,6 +78,7 @@ export default function ShipmentCard({
                 name="arrow-right"
                 size={14}
                 color={COLORS.primary.DEFAULT}
+                className="mt-1"
               />
               <AppText
                 label={shipment.destination.city}
